@@ -30,14 +30,10 @@
  			isSplashed
  		} = this.props;
  		if (isSplashed) {
- 			let initialRoute = {
- 				name: 'home',
- 				component: Home,
- 			}
  			return (
  				<Navigator
 	              style={styles.container}
-	              initialRoute={initialRoute}
+	              initialRoute={{component: Home}}
 	              configureScene={() => Navigator.SceneConfigs.PushFromRight}
 	              renderScene={(route,navigator)=>this.renderScene(route,navigator)}/>
  			);
