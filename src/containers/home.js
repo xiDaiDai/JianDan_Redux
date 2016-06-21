@@ -15,32 +15,25 @@ import DrawerList from '../components/drawerList';
 import * as Device from '../constants/device';
 import * as Drawer from '../constants/drawer';
 import NewsList from './freshNews';
-
-
-const toolBarActions = [{
-  title: '刷新',
-  icon: require('../images/ic_refresh_white_24dp.png'),
-  show: 'always'
-}];
-
+import {
+  changeItem
+} from '../actions/drawer';
+import {
+  connect
+} from 'react-redux'
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: '新鲜事',
-    };
-  }
-
-  componentDidMount() {
-    this.setState({
-      centerContent: <NewsList/>
-    });
   }
 
   render() {
-    return (
-      <View style={styles.container}>
+      const {
+        title,
+        component,
+      } = this.props;
+      return (
+        <View style={styles.container}>
           <StatusBar
            backgroundColor="#232320"
            barStyle="light-content"
@@ -56,18 +49,17 @@ class Home extends Component {
                     ref='toolBarandriod'
                     style={styles.toolBar}
                     navIcon={require('../images/ic_menu_white_18dp.png')}
-                    title={this.state.title}
+                    title={title}
                     titleColor='white'
-                    actions={toolBarActions}
                     onIconClicked={() => this.refs.drawerLayoutAndroid.openDrawer()}
                      />
-                    {this.state.centerContent}                    
+                    <NewsList />    
               </View>
           </DrawerLayoutAndroid>
       </View>
-    );
-  }
-
+      );
+    }
+    // <component />      
   renderNavigationView() {
     return (<DrawerList  onItemSelected={(theme)=>this.onItemSelected(theme)}/>);
   }
@@ -76,18 +68,29 @@ class Home extends Component {
   onItemSelected(theme) {
     ToastAndroid.show(theme, ToastAndroid.LONG);
     this.refs.drawerLayoutAndroid.closeDrawer();
-    switch (theme) {
-      case 'freshNews':
-        this.setState({
-          centerContent: <NewsList/>,
-          title: '新鲜事'
-        })
-        break;
-    }
+    () => this.changeItem();
 
   }
 
+  changeItem() {
+    this.props.changeItem();
+  }
 
+
+}
+
+function mapStateToProps(state) {
+  return {
+    title: state.title,
+    component: state.component,
+  };
+}
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    changeItem: () => dispatch(changeItem()),
+  };
 }
 
 
@@ -114,4 +117,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
-export default Home;
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

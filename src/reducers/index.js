@@ -2,21 +2,11 @@ import React from 'react';
 import {
 	combineReducers
 } from "redux";
-import * as appType from "../constants/AppType";
-const initialState = {
-	isSplashed: false,
-}
+import splashReducer from './splash';
+import drawerReducer from './drawer';
 
-const reducer = (state = initialState, action) => {
-	switch (action.type) {
-		case appType.IS_SPLASHED:
-			return {
-				...state,
-				isSplashed: true,
-			};
-		default:
-			return state;
-	}
-
-};
+const reducer = combineReducers({
+	splashReducer,
+	drawerReducer
+});
 export default reducer;

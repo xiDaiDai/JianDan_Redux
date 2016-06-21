@@ -6,7 +6,8 @@
  	Navigator,
  	View,
  	StatusBar,
- 	StyleSheet
+ 	StyleSheet,
+ 	ToastAndroid
  } from 'react-native';
  import {
  	connect
@@ -30,6 +31,7 @@
  			isSplashed
  		} = this.props;
  		if (isSplashed) {
+ 			ToastAndroid.show("splashed", ToastAndroid.LONG);
  			return (
  				<Navigator
 	              style={styles.container}
@@ -38,6 +40,7 @@
 	              renderScene={(route,navigator)=>this.renderScene(route,navigator)}/>
  			);
  		} else {
+ 			ToastAndroid.show(" splashing", ToastAndroid.LONG);
  			return (
  				<View style={styles.container}>
                     <StatusBar
@@ -56,6 +59,7 @@
  	componentDidMount() {
  		setTimeout(() => {
  			this.changeSplashed();
+ 			ToastAndroid.show("componentDidMount", ToastAndroid.LONG);
  		}, 4000);
 
  	}
