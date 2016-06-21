@@ -59,7 +59,6 @@
  	componentDidMount() {
  		setTimeout(() => {
  			this.changeSplashed();
- 			ToastAndroid.show("componentDidMount", ToastAndroid.LONG);
  		}, 4000);
 
  	}
