@@ -1,0 +1,1 @@
+ export const IS_SPLASHED = "IS_SPLASHED";
