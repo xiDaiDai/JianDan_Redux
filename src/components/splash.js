@@ -9,8 +9,8 @@ import {
 	Animated
 } from 'react-native'
 
-const WINDOW_WIDTH = Dimensions.get('window').width;
-const WINDOW_HEIGHT = Dimensions.get('window').height;
+import HomeContainer from '../containers/homeContainer';
+import * as Device from '../constants/device';
 
 class Splash extends Component {
 	constructor(props) {
@@ -21,12 +21,29 @@ class Splash extends Component {
 	}
 
 	componentDidMount() {
+		const {
+			navigator
+		} = this.props;
+
 		Animated.timing(
 			this.state.fadeAnim, {
 				toValue: 1,
 				duration: 2000,
 			}
-		).start();
+		).start(() => {
+			navigator.resetTo({
+				component: HomeContainer,
+				name: 'homeContainer'
+			});
+		});
+
+
+
+		/*setTimeout(() => {
+			InteractionManager.runAfterInteractions(() => {
+
+			});
+		}, 2000);*/
 	}
 
 	render() {
@@ -44,8 +61,8 @@ const styles = StyleSheet.create({
 
 	centerImage: {
 		flex: 1,
-		width: WINDOW_WIDTH,
-		height: WINDOW_HEIGHT
+		width: Device.WIDTH,
+		height: Device.HEIGHT
 	}
 
 });

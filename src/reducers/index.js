@@ -1,12 +1,13 @@
-import React from 'react';
+'use strict';
 import {
 	combineReducers
-} from "redux";
-import splashReducer from './splash';
-import drawerReducer from './drawer';
+} from 'redux';
+import read from './read';
+import detail from './newsdetail';
 
-const reducer = combineReducers({
-	splashReducer,
-	drawerReducer
+const rootReducer = combineReducers({
+	read,
+	detail
 });
-export default reducer;
+
+export default rootReducer;

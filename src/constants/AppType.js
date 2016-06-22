@@ -1,7 +1,8 @@
- export const IS_SPLASHED = "IS_SPLASHED";
- export const NEWS = "NEWS";
- export const TREE_NEW_BEE = "TREE_NEW_BEE";
- export const PICTURES = "PICTURES ";
- export const GIRLS = "GIRLS";
- export const VIDEOS = "VIDEOS";
- export const SETTING = "SETTING";
+ export const FETCHING_NEWS = "FETCHING_NEWS";
+ export const FETCHING_NEXT_PAGE_NEWS = "FETCHING_NEXT_PAGE_NEWS";
+ export const ERROR_GETTING_NEWS = "ERROR_GETTING_NEWS";
+ export const RECEIVED_DATA = "RECEIVED_DATA ";
+ export const RECEIVED_MORE_DATA = "RECEIVED_MORE_DATA";
+ export const FETCHING_DETAIL_NEWS = "FETCHING_DETAIL_NEWS";
+ export const RECEIVED_DETAIL_NEWS = "RECEIVED_DETAIL_NEWS";
+ export const ERROR_DETAIL_NEWS = "ERROR_DETAIL_NEWS";
