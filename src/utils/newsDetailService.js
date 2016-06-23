@@ -1,7 +1,7 @@
 import {
-	errorOnReceivingNews,
-	retrievedNews,
-	retrievedMoreNews
+	errorOnReceivingNewsDetail,
+	retrievedNewsDetail,
+	retrievedMoreNewsDetail
 } from '../actions/newsdetail'
 
 
@@ -12,27 +12,27 @@ class NewsService {
 
 	fetchNews(dispatch) {
 
-		let url = baseUrl + this.pageNumber;
+		let url = detail_url + this.pageNumber;
 		fetch(url)
 			.then((response) => response.json())
 			.catch((error) => {
-				dispatch(errorOnReceivingNews());
+				dispatch(errorOnReceivingNewsDetail());
 			})
 			.then((responseData) => {
-				dispatch(retrievedNews(responseData));
+				dispatch(retrievedNewsDetail(responseData));
 			}).done();
 	}
 
 	fetchNextPageNews(dispatch) {
 		this.pageNumber += 1;
-		let url = baseUrl + this.pageNumber;
+		let url = detail_url + this.pageNumber;
 		fetch(url)
 			.then((response) => response.json())
 			.catch((error) => {
-				dispatch(errorOnReceivingNews());
+				dispatch(errorOnReceivingNewsDetail());
 			})
 			.then((responseData) => {
-				dispatch(retrievedMoreNews(responseData));
+				dispatch(retrievedMoreNewsDetail(responseData));
 			}).done();
 	}
 

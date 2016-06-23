@@ -33,15 +33,9 @@ class NewsDetailContainer extends Component {
 		super(props);
 	}
 
-	componentDidMount() {
-		this.props.getNews();
-	}
+
 
 	render() {
-		const {
-			content,
-			isLoading
-		} = this.props;
 		return (
 			<View style={styles.container}>
 				<NewsDetail {...this.props} />
@@ -53,18 +47,13 @@ class NewsDetailContainer extends Component {
 
 
 function mapStateToProps(state) {
+
 	return {
 		content: state.content,
 		isLoading: state.isLoading,
 	};
 }
 
-
-function mapDispatchToProps(dispatch) {
-	return {
-		getNews: () => dispatch(getNews()),
-	};
-}
 
 const styles = StyleSheet.create({
 	container: {
@@ -78,4 +67,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsDetailContainer);
+export default connect(mapStateToProps)(NewsDetailContainer);

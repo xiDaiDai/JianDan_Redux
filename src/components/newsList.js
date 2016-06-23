@@ -15,6 +15,10 @@ import {
 	RefreshControl
 } from "react-native";
 import NewsItem from './newsItem';
+import {
+	getNews,
+	getNextPageNews
+} from '../actions/read';
 
 import LoadingMore from './loadingMore';
 
@@ -30,15 +34,30 @@ class NewsList extends Component {
 
 	}
 
-	render() {
-		let {
-			news
+	componentDidMount() {
+		const {
+			dispatch,
 		} = this.props;
+		dispatch(getNews());
+
+	}
+
+
+	componentWillReceiveProps(nextProps) {
+
+	}
+
+	render() {
+		const {
+			read
+		} = this.props;
+
+		let dataSource = this.state.dataSource.cloneWithRows(read.news)
 		return (<View style={styles.container}>
 						<ListView ref = "listview" 
-						dataSource = {this.state.dataSource.cloneWithRows(news)}
+						dataSource = {dataSource}
 						renderRow = {(item) => this.renderRow(item)}
-						onEndReached = {this.props.getNext}
+						onEndReached = {()=>this.onEndReach()}
 						renderFooter = {() => this.renderFooter()}
 						enableEmptySections = {true}
 						automaticallyAdjustContentInsets = {false}
@@ -46,8 +65,8 @@ class NewsList extends Component {
 						keyboardShouldPersistTaps = {true}
 						refreshControl = {
 							<RefreshControl
-						          refreshing={this.props.isLoading}
-						          onRefresh={()=>this.props.onRefresh}
+						          refreshing={read.isLoading}
+						          onRefresh={()=>this.onRefresh()}
 						          colors={['#272822']}/>
 								}
 							/>
@@ -63,6 +82,21 @@ class NewsList extends Component {
 
 	renderFooter() {
 		return (<LoadingMore />);
+	}
+
+	onEndReach() {
+		const {
+			dispatch
+		} = this.props;
+		dispatch(getNextPageNews());
+	}
+
+	onRefresh() {
+		const {
+			dispatch
+		} = this.props;
+
+		dispatch(getNews());
 	}
 
 

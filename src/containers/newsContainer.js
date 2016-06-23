@@ -1,11 +1,6 @@
 import {
 	connect
 } from 'react-redux'
-import {
-	getNews,
-	getNextPageNews,
-} from '../actions/read'
-
 import React, {
 	Component,
 	PropTypes
@@ -24,50 +19,29 @@ class NewsContainer extends Component {
 		super(props);
 	}
 
-	componentDidMount() {
-		this.props.getNews();
-	}
-
 	render() {
-		const {
-			news,
-			isLoading
-		} = this.props;
-
 		return (
 			<View style={styles.container}>
-				<NewsList {...this.props} getNext={()=>this.getNextPageNews()} onRefresh={()=>this.doRefresh()}></NewsList>
+				<NewsList {...this.props} ></NewsList>
           	</View>
 		);
-	}
-
-	getNextPageNews() {
-		this.props.getNextPageNews();
-	}
-
-	doRefresh() {
-		this.props.getNews();
 	}
 }
 
 
 
 function mapStateToProps(state) {
+	const read = {
+		news,
+		isLoading,
+		hasNewsToDisplay,
+		loadMoreNews
+	} = state
 	return {
-		news: state.news,
-		isLoading: state.isLoading,
-		hasNewsToDisplay: state.hasNewsToDisplay,
-		isLoadingTail: state.isLoadingTail
+		read
 	};
 }
 
-
-function mapDispatchToProps(dispatch) {
-	return {
-		getNews: () => dispatch(getNews()),
-		getNextPageNews: () => dispatch(getNextPageNews()),
-	};
-}
 
 const styles = StyleSheet.create({
 	container: {
@@ -76,4 +50,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsContainer);
+export default connect(mapStateToProps)(NewsContainer);

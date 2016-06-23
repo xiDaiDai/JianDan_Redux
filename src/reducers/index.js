@@ -3,11 +3,11 @@ import {
 	combineReducers
 } from 'redux';
 import read from './read';
-import detail from './newsdetail';
-
+import newsdetail from './newsdetail';
 const rootReducer = combineReducers({
 	read,
-	detail
+	newsdetail
+
 });
 
 export default rootReducer;

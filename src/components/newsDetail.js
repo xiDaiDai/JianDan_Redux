@@ -17,10 +17,22 @@ import {
 	ToolbarAndroid
 } from 'react-native';
 
+import {
+	getNewsDetail
+} from '../actions/newsdetail';
+
 
 class NewsDetail extends Component {
 	constructor(props) {
 		super(props);
+	}
+
+	componentDidMount() {
+		const {
+			dispatch
+		} = this.props;
+		dispatch(getNewsDetail());
+
 	}
 
 	render() {
@@ -30,12 +42,12 @@ class NewsDetail extends Component {
 			      <ToolbarAndroid
 			                style={styles.toolBar}
 			                navIcon={require('../images/ic_arrow_back_white_18dp.png')}
-			                title={this.props.item.title}
+			                title={'this.props.item.title'}
 			                titleColor='white'
 			                onIconClicked={() => this.backAndroid()}/>
 			       <WebView javaScriptEnabled={true}
 			                automaticallyAdjustContentInsets={true}
-			                source={{html: this.props.item.content}}
+			                source={{html: this.props.content}}
 			                style={{margin:5}}
 			                />
 		     </View>

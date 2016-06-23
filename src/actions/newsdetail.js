@@ -1,7 +1,7 @@
 import * as type from '../constants/AppType';
 import service from '../utils/newsDetailService'
 
-export const fetchNews = (): Object => {
+export const fetchNewsDetail = (): Object => {
 	return {
 		type: type.FETCHING_DETAIL_NEWS
 	}
@@ -9,22 +9,22 @@ export const fetchNews = (): Object => {
 
 
 
-export const getNews = (): Function => {
+export const getNewsDetail = (): Function => {
 	return (dispatch) => {
-		dispatch(fetchNews());
+		dispatch(fetchNewsDetail());
 		service.fetchNews(dispatch);
 	};
 };
 
 
 
-export const errorOnReceivingNews = (): Object => {
+export const errorOnReceivingNewsDetail = (): Object => {
 	return {
 		type: type.ERROR_DETAIL_NEWS,
 	};
 };
 
-export const retrievedNews = (data: Object): Object => {
+export const retrievedNewsDetail = (data: Object): Object => {
 	return {
 		type: type.RECEIVED_DETAIL_NEWS,
 		data

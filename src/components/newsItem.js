@@ -48,11 +48,11 @@ class NewsItem extends Component {
 
 
   selectItem(item) {
-    // this.props.navigator.push({
-    //   name: 'news',
-    //   item: item,
-    //   component: NewsDetailContainer,
-    // });
+    this.props.navigator.push({
+      name: 'news',
+      item: item,
+      component: NewsDetailContainer,
+    });
 
     ToastAndroid.show('点击', ToastAndroid.LONG);
 
