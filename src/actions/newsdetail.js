@@ -9,10 +9,10 @@ export const fetchNewsDetail = (): Object => {
 
 
 
-export const getNewsDetail = (): Function => {
+export const getNewsDetail = (id: String): Function => {
 	return (dispatch) => {
 		dispatch(fetchNewsDetail());
-		service.fetchNews(dispatch);
+		service.fetchNews(dispatch, id);
 	};
 };
 

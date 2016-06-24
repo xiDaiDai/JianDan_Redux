@@ -29,25 +29,31 @@ class NewsDetail extends Component {
 
 	componentDidMount() {
 		const {
+			route,
 			dispatch
 		} = this.props;
-		dispatch(getNewsDetail());
+		dispatch(getNewsDetail(route.item.id));
 
 	}
 
 	render() {
-		// if (this.state.isloading) return (<LoadingView/>);
+
+		const {
+			newsdetail,
+			route
+		} = this.props;
+
 		return (
 			<View style={styles.container}>
 			      <ToolbarAndroid
 			                style={styles.toolBar}
 			                navIcon={require('../images/ic_arrow_back_white_18dp.png')}
-			                title={'this.props.item.title'}
+			                title={route.item.title}
 			                titleColor='white'
 			                onIconClicked={() => this.backAndroid()}/>
 			       <WebView javaScriptEnabled={true}
 			                automaticallyAdjustContentInsets={true}
-			                source={{html: this.props.content}}
+			                source={{html: newsdetail.content}}
 			                style={{margin:5}}
 			                />
 		     </View>

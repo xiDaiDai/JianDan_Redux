@@ -48,9 +48,12 @@ class NewsDetailContainer extends Component {
 
 function mapStateToProps(state) {
 
+	console.log(state);
+	const {
+		newsdetail
+	} = state
 	return {
-		content: state.content,
-		isLoading: state.isLoading,
+		newsdetail
 	};
 }
 

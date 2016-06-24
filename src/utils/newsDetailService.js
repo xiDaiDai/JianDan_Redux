@@ -10,9 +10,9 @@ const detail_url = "http://i.jandan.net/?oxwlxojflwblxbsapi=get_post&include=con
 
 class NewsService {
 
-	fetchNews(dispatch) {
+	fetchNews(dispatch, id) {
 
-		let url = detail_url + this.pageNumber;
+		let url = detail_url + id;
 		fetch(url)
 			.then((response) => response.json())
 			.catch((error) => {
@@ -23,18 +23,6 @@ class NewsService {
 			}).done();
 	}
 
-	fetchNextPageNews(dispatch) {
-		this.pageNumber += 1;
-		let url = detail_url + this.pageNumber;
-		fetch(url)
-			.then((response) => response.json())
-			.catch((error) => {
-				dispatch(errorOnReceivingNewsDetail());
-			})
-			.then((responseData) => {
-				dispatch(retrievedMoreNewsDetail(responseData));
-			}).done();
-	}
 
 
 }

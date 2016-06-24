@@ -31,11 +31,8 @@ class NewsContainer extends Component {
 
 
 function mapStateToProps(state) {
-	const read = {
-		news,
-		isLoading,
-		hasNewsToDisplay,
-		loadMoreNews
+	const {
+		read
 	} = state
 	return {
 		read

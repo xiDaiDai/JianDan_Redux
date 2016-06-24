@@ -51,7 +51,6 @@ class NewsList extends Component {
 		const {
 			read
 		} = this.props;
-
 		let dataSource = this.state.dataSource.cloneWithRows(read.news)
 		return (<View style={styles.container}>
 						<ListView ref = "listview" 
