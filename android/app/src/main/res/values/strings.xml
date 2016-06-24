@@ -1,4 +1,4 @@
 <resources>
     <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">ymc65eQ05cLAttibN2ZDb9VXf4DrNJFb5HgSW</string>
-    <string name="app_name">JianDan</string>
+    <string name="app_name">煎蛋Redux</string>
 </resources>
