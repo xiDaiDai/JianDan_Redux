@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 
 import * as Device from '../constants/device';
+import WebView from './webView';
 
 class VideoItem extends Component {
 
@@ -26,7 +27,7 @@ class VideoItem extends Component {
 		const newsItem = this.props.item;
 		if (!newsItem.videos[0]) return null;
 		return (
-			<TouchableHighlight underlayColor='white' onPress={()=>{}}>
+			<TouchableHighlight underlayColor='white' onPress={()=>{this.selectItem(newsItem)}}>
 		         <View style={styles.item}>
 			         <View style={{flex:7,alignItems:'center'}}>
 			                <Image  source={{uri:newsItem.videos[0].thumbnail}}
@@ -53,14 +54,14 @@ class VideoItem extends Component {
 	}
 
 
-	// selectItem(item) {
-	// 	this.props.navigator.push({
-	// 		name: 'news',
-	// 		item: item,
-	// 		component: NewsDetailContainer,
-	// 	});
+	selectItem(item) {
+		this.props.navigator.push({
+			name: 'news',
+			url: item.comment_content,
+			component: WebView,
+		});
 
-	// }
+	}
 }
 
 const styles = StyleSheet.create({

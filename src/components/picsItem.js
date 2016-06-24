@@ -1,35 +1,36 @@
 'use strict';
 
 import React, {
-	Component,
-	PropTypes
+  Component,
+  PropTypes
 } from 'react'
 import {
-	Image,
-	Platform,
-	StyleSheet,
-	Text,
-	TouchableHighlight,
-	TouchableNativeFeedback,
-	ToastAndroid,
-	View
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  TouchableNativeFeedback,
+  ToastAndroid,
+  View
 } from 'react-native';
 
 import * as Device from '../constants/device';
+import ImageShower from './imageShower';
 
 class PicsItem extends Component {
 
-	constructor(props) {
-		super(props);
-	}
+  constructor(props) {
+    super(props);
+  }
 
-	render() {
-		const newsItem = this.props.item;
+  render() {
+    const newsItem = this.props.item;
 
-		return (
-			<TouchableHighlight 
+    return (
+      <TouchableHighlight 
             underlayColor='white'
-            onPress={()=>{}}
+            onPress={()=>{this.selectItem(newsItem)}}
            >
         <View style={{backgroundColor:'white',flexDirection:'column',marginTop:10,marginLeft:10,marginRight:10,borderRadius:5,borderWidth:0.5,borderColor:'#A8AFB3'}}>
           <View style={{ flexDirection :'row',padding:10,alignItems:'center'}}>          
@@ -58,8 +59,17 @@ class PicsItem extends Component {
         </View>
       </TouchableHighlight>
 
-		);
-	}
+    );
+  }
+
+  selectItem(item) {
+    this.props.navigator.push({
+      name: 'news',
+      url: item.pics[0],
+      component: ImageShower,
+    });
+
+  }
 
 
 }

@@ -19,13 +19,15 @@ import JokeContainer from '../containers/jokeContainer';
 import PicsContainer from '../containers/picsContainer';
 import GirlsContainer from '../containers/girlsContainer';
 import VideosContainer from '../containers/videosContainer';
+import About from '../components/about';
+
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			content: <NewsContainer  {...this.props}/>,
-			title: '新鲜事'
+			title: Drawer.NEWS
 		}
 	}
 
@@ -67,37 +69,37 @@ class Home extends Component {
 			case 'freshNews':
 				this.setState({
 					content: <NewsContainer {...this.props}/>,
-					title: '新鲜事'
+					title: Drawer.NEWS
 				})
 				break;
 			case 'treeNewBee':
 				this.setState({
 					content: <JokeContainer {...this.props}/>,
-					title: '段子'
+					title: Drawer.TREE_NEW_BEE
 				})
 				break;
 			case 'pictures':
 				this.setState({
 					content: <PicsContainer {...this.props}/>,
-					title: '无聊图'
+					title: Drawer.PICTURES
 				})
 				break;
 			case 'girls':
 				this.setState({
 					content: <GirlsContainer {...this.props}/>,
-					title: '妹子图'
+					title: Drawer.GIRLS
 				})
 				break;
 			case 'videos':
 				this.setState({
 					content: <VideosContainer {...this.props}/>,
-					title: '小视频'
+					title: Drawer.VIDEOS
 				})
 				break;
 			case 'setting':
 				this.setState({
-					content: <NewsContainer {...this.props}/>,
-					title: '设置'
+					content: <About {...this.props}/>,
+					title: Drawer.SETTING
 				})
 				break;
 		}

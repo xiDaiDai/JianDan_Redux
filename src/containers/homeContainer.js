@@ -14,12 +14,16 @@ import {
 import {
 	connect
 } from 'react-redux'
-
+import codePush from "react-native-code-push";
 import Home from '../components/home';
 
 class HomeContainer extends Component {
 	constructor(props) {
 		super(props);
+	}
+
+	componentDidMount() {
+		codePush.sync();
 	}
 
 	render() {

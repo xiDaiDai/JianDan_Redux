@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 
 import * as Device from '../constants/device';
+import ImageShower from './imageShower';
 
 class GirlItem extends Component {
 
@@ -28,7 +29,7 @@ class GirlItem extends Component {
     return (
       <TouchableHighlight 
             underlayColor='white'
-            onPress={()=>{}}
+            onPress={()=>{this.selectItem(newsItem)}}
            >
         <View style={{backgroundColor:'white',flexDirection:'column'}}>
           <View style={{ flexDirection :'row',padding:10,alignItems:'center'}}>          
@@ -55,6 +56,15 @@ class GirlItem extends Component {
       </TouchableHighlight>
 
     );
+  }
+
+  selectItem(item) {
+    this.props.navigator.push({
+      name: 'news',
+      url: item.pics[0],
+      component: ImageShower,
+    });
+
   }
 
 
