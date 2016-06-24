@@ -32,9 +32,6 @@ class NewsDetailContainer extends Component {
 	constructor(props) {
 		super(props);
 	}
-
-
-
 	render() {
 		return (
 			<View style={styles.container}>
@@ -42,18 +39,15 @@ class NewsDetailContainer extends Component {
 			</View>
 		);
 	}
-
 }
 
-
 function mapStateToProps(state) {
-
 	console.log(state);
 	const {
-		newsdetail
+		detail
 	} = state
 	return {
-		newsdetail
+		detail
 	};
 }
 

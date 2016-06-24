@@ -1,10 +1,8 @@
 import {
 	connect
-} from 'react-redux'
+} from 'react-redux';
 import React, {
 	Component,
-	PropTypes
-
 } from 'react';
 import {
 	View,

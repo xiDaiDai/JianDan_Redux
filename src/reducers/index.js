@@ -3,10 +3,16 @@ import {
 	combineReducers
 } from 'redux';
 import read from './read';
-import newsdetail from './newsdetail';
+import detail from './newsdetail';
+import joke from './joke';
+import pics from './pics';
+import girls from './girls';
 const rootReducer = combineReducers({
 	read,
-	newsdetail
+	detail,
+	joke,
+	pics,
+	girls
 });
 
 export default rootReducer;

@@ -54,8 +54,6 @@ class NewsItem extends Component {
       component: NewsDetailContainer,
     });
 
-    ToastAndroid.show('点击', ToastAndroid.LONG);
-
   }
 }
 const styles = StyleSheet.create({

@@ -39,7 +39,7 @@ class NewsDetail extends Component {
 	render() {
 
 		const {
-			newsdetail,
+			detail,
 			route
 		} = this.props;
 
@@ -53,7 +53,7 @@ class NewsDetail extends Component {
 			                onIconClicked={() => this.backAndroid()}/>
 			       <WebView javaScriptEnabled={true}
 			                automaticallyAdjustContentInsets={true}
-			                source={{html: newsdetail.content}}
+			                source={{html: detail.content}}
 			                style={{margin:5}}
 			                />
 		     </View>
