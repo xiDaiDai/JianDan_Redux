@@ -7,4 +7,7 @@
 <img src="https://github.com/xiDaiDai/JanDan_ReactNative_Sample/blob/master/sreenshot/device-2016-05-26-175830.png" height="270" width="130" />
 <img src="https://github.com/xiDaiDai/JanDan_ReactNative_Sample/blob/master/sreenshot/device-2016-05-26-175911.png" height="270" width="130" />
 </p>
+
+#License
+<p>MIT
  
