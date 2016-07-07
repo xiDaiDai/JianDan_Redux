@@ -1,5 +1,5 @@
 # JianDan_Redux
-<p><a href="https://github.com/xiDaiDai/CNode_ReactNative">Now Recommend CNode_ReactNative Using Redux</a>
+<p>Now Recommend<a href="https://github.com/xiDaiDai/CNode_ReactNative"> CNode_ReactNative </a>Using Redux
 <p>JanDan for Fun,enjoy yourselves please!
 <p>React Native Version 0.27,ES6</p>
 <p><img src="https://github.com/xiDaiDai/JanDan_ReactNative_Sample/blob/master/sreenshot/device-2016-05-25-174726.png" height="270" width="130" />
